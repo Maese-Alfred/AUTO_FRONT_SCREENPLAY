@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id 'net.serenity-bdd.serenity-gradle-plugin' version '4.2.12'
+}
+
+group = 'org.auto'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+compileTestJava.options.encoding = 'UTF-8'
+
+dependencies {
+    testImplementation 'net.serenity-bdd:serenity-core:4.2.12'
+    testImplementation 'net.serenity-bdd:serenity-screenplay:4.2.12'
+    testImplementation 'net.serenity-bdd:serenity-screenplay-webdriver:4.2.12'
+    testImplementation 'net.serenity-bdd:serenity-ensure:4.2.12'
+    testImplementation 'net.serenity-bdd:serenity-cucumber:4.2.12'
+    testImplementation 'io.cucumber:cucumber-java:7.20.1'
+    testImplementation 'io.cucumber:cucumber-junit-platform-engine:7.20.1'
+    testImplementation 'org.junit.platform:junit-platform-suite:1.10.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+    testLogging.showStandardStreams = true
+    jvmArgs '-Dfile.encoding=UTF-8'
+    systemProperty 'file.encoding', 'UTF-8'
+    systemProperty 'webdriver.edge.driver', "${projectDir}/drivers/msedgedriver.exe"
+}
+
+gradle.startParameter.continueOnFailure = true
+
+serenity {
+    reports = ["single-page-html"]
+}
