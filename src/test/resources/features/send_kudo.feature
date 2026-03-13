@@ -1,16 +1,14 @@
-# language: en
+Feature: Envio de Kudos entre colaboradores
+  Como colaborador de la organizacion
+  Quiero enviar un kudo a un compañero
+  Para reconocer su excelente trabajo
 
-Feature: Sending Kudos between collaborators
-  As a collaborator in the organization
-  I want to send a kudo to a teammate
-  So that I can recognize their excellent work
-
-  Scenario: Successfully send a kudo
-    Given the collaborator is on the main page
-    When they access the Kudos section
-    And they select "christopher@sofkianos.com" as sender
-    And they select "santiago@sofkianos.com" as recipient
-    And they select the category "Teamwork"
-    And they write the message "Excelente trabajo en el sprint screenplay"
-    And they drag the slider to send the kudo
-    Then the kudo with message "Excelente trabajo en el sprint screenplay" appears in the kudos list
+  Scenario: Enviar un kudo exitosamente
+    Given que el colaborador se encuentra en la pagina principal
+    When accede a la sección de Kudos
+    And selecciona como remitente "christopher@sofkianos.com"
+    And selecciona como destinatario "santiago@sofkianos.com"
+    And selecciona la categoría "Teamwork"
+    And escribe el mensaje "Excelente trabajo en el sprint Screenplay"
+    And desliza el slider para enviar el kudo
+    Then el kudo con mensaje "Excelente trabajo en el sprint Screenplay" aparece en la lista de kudos

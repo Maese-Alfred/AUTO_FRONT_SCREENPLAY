@@ -32,7 +32,7 @@ public class SendKudoStepDefinitions {
         return actor;
     }
 
-    @Given("the collaborator is on the main page")
+    @Given("que el colaborador se encuentra en la pagina principal")
     public void elColaboradorNavegaALaPaginaPrincipal() {
         String baseUrl = System.getProperty("webdriver.base.url", "http://localhost:5173");
         getActor().attemptsTo(
@@ -40,29 +40,29 @@ public class SendKudoStepDefinitions {
         );
     }
 
-    @When("they access the Kudos section")
+    @When("accede a la sección de Kudos")
     public void accedeALaSeccionDeKudos() {
         getActor().attemptsTo(
                 NavigateToKudos.section()
         );
     }
 
-    @When("they select {string} as sender")
+    @When("selecciona como remitente {string}")
     public void seleccionaComoRemitente(String email) {
         this.senderEmail = email;
     }
 
-    @When("they select {string} as recipient")
+    @When("selecciona como destinatario {string}")
     public void seleccionaComoDestinatario(String email) {
         this.recipientEmail = email;
     }
 
-    @When("they select the category {string}")
+    @When("selecciona la categoría {string}")
     public void seleccionaLaCategoria(String cat) {
         this.category = cat;
     }
 
-    @When("they write the message {string}")
+    @When("escribe el mensaje {string}")
     public void escribeElMensaje(String msg) {
         this.message = msg;
         getActor().attemptsTo(
@@ -73,14 +73,14 @@ public class SendKudoStepDefinitions {
         );
     }
 
-    @When("they drag the slider to send the kudo")
+    @When("desliza el slider para enviar el kudo")
     public void deslizaElSliderParaEnviar() {
         getActor().attemptsTo(
                 SendKudo.byDraggingSlider()
         );
     }
 
-    @Then("the kudo with message {string} appears in the kudos list")
+    @Then("el kudo con mensaje {string} aparece en la lista de kudos")
     public void elKudoApareceEnLaLista(String expectedMessage) throws InterruptedException {
         Thread.sleep(3000);
         String baseUrl = System.getProperty("webdriver.base.url", "http://localhost:5173");
